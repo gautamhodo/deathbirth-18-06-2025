@@ -240,7 +240,8 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
   return (
     <>
       <nav className="bg-black border-b border-gray-800 w-full fixed top-0 left-0 z-50 shadow-lg font-poppins">
-        <div className="flex items-center justify-between h-16 px-6 font-poppins">
+        {/* <div className="flex items-center justify-between h-16 px-6 font-poppins"> */}
+        <div className="flex items-center justify-between h-12 px-6 font-poppins">
           {/* Left side - Logo and navigation */}
           <div className="flex items-center gap-3 font-poppins">
             <div className="w-10 h-14 flex items-center justify-center font-poppins">
@@ -253,7 +254,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
           </div>
           
           {/* Navigation items */}
-          <div className="flex items-center gap-2 font-poppins">
+          <div className="flex items-center gap-2 "style={{fontWeight:"300" ,fontFamily:"Poppins,sans-serif"}}>
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -261,7 +262,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
                 className={`px-4 py-2 text-[16px] transition-colors mr-2 font-poppins ${
                   activeSection === item.id
                     ? "text-white text-hover:[#038ba4] border-primary"
-                    : "text-gray-300 hover:text-white"
+                    : "text-gray-300 hover:text-[#038ba4]"
                 }`}
               >
                 {item.label}
@@ -299,7 +300,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
           
           {/* Center - Search Bar */}
           <div className="flex-1 max-w-md relative ml-auto flex items-center gap-2 font-poppins">
-            <FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#ffffff"}} className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" />
+            {/* <FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#ffffff"}} className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" /> */}
             <Input
               type="text"
               placeholder="Search Patient with Name or Card No"
@@ -308,11 +309,16 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
               className="pl-10 bg-white text-black placeholder-gray-500 focus:border-primary font-poppins"
             />
             <button
-              className="ml-2 flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors font-poppins"
-              style={{background: 'linear-gradient(135deg, rgb(5, 130, 172), rgb(16, 85, 97))'}}
+              className="ml-3 flex items-center gap-2 px-4 py-1 text-sm font-medium text-white transition-colors"
+              style={{
+                background: 'linear-gradient(135deg, rgb(5, 130, 172), rgb(16, 85, 97))',
+                borderRadius: "3px",
+                height: "30px",
+                minWidth: "120px"
+              }}
               onClick={() => setActiveSection('certificates')}
             >
-               Reports
+              New Sale
             </button>
           </div>
           
@@ -345,9 +351,9 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
             {/* New Register Button */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="ml-3 flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors" style={{background: 'linear-gradient(135deg, rgb(5, 130, 172), rgb(16, 85, 97))'}}>
+                <button className="ml-3 flex items-center gap-2 px-4 py-1 text-sm font-medium text-white transition-colors" style={{background: 'linear-gradient(135deg, rgb(5, 130, 172), rgb(16, 85, 97))',borderRadius:"3PX"}}>
                   <Plus className="w-4 h-4" />
-                  New Register
+                  Add Patient
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 bg-white border border-gray-200 shadow-lg">
@@ -433,7 +439,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
       </nav>
       {/* Date and Time Display */}
       <div className="bg-#e5e7eb border-none border-#e5e7eb w-full mt-6">
-        <div className="flex items-center justify-between gap-4 px-6">
+        <div className="flex items-center justify-between gap-4 px-3">
           <div className="flex items-center">
             <img 
               src={state === "expanded" ? "/src/assets/lefthand.png" : "/src/assets/righthand.png"} 
@@ -443,24 +449,24 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
             />
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-black">
-              <div className="flex items-center justify-center w-8 h-8 border-2 border-white bg-white mr-2">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center w-8 h-8 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
                 <FontAwesomeIcon icon={faCalendarDays} className="w-5 h-5 text-black" />
               </div>
-              <span className="text-sm">
+              <span className="text-sm"  style={{fontSize:"16px" ,fontWeight:"700" ,color:"#888888" }}>
                 {currentDateTime.toLocaleDateString('en-US', { 
-                  weekday: 'long', 
+                  weekday: 'short', 
                   year: 'numeric', 
-                  month: 'long', 
+                  month: 'short', 
                   day: 'numeric' 
                 })}
               </span>
             </div>
             <div className="flex items-center gap-2 text-black">
-              <div className="flex items-center justify-center w-8 h-8  border-2 border-white bg-white mr-2">
+              <div className="flex items-center justify-center w-8 h-8 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
                 <FontAwesomeIcon icon={faClock} className="w-5 h-5 text-black" />
               </div>
-              <span className="text-sm">
+              <span className="text-sm" style={{fontSize:"16px" ,fontWeight:"700" ,color:"#888888" }}>
                 {currentDateTime.toLocaleTimeString('en-US', { 
                   hour: '2-digit', 
                   minute: '2-digit', 
@@ -470,7 +476,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
               </span>
             </div>
             <div className="flex items-center gap-2 text-black">
-              <div className="flex items-center justify-center w-8 h-8  border-2 border-white bg-white mr-2">
+              <div className="flex items-center justify-center w-8 h-8  border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
                 <FontAwesomeIcon icon={faCalculator} />
               </div>
             </div>

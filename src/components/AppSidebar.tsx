@@ -132,19 +132,19 @@ export function AppSidebar({ activeSection, setActiveSection }: AppSidebarProps)
 
             <SidebarMenu >
               {filteredMenuItems.map((item) => (
-                <SidebarMenuItem key={item.id} style={{marginTop:"10px", height:"40px"}}>
+                <SidebarMenuItem key={item.id} style={{marginTop:"6px", height:"30px"}}>
                   <SidebarMenuButton asChild>
                     <button
-                      style={{height:"50px" ,borderRadius:"0px"}}
+                      style={{height:"38px" ,borderRadius:"0px"}}
                       onClick={() => setActiveSection(item.id)}
                       className={`flex items-center gap-3 w-full text-left p-3 transition-colors font-poppins ${
                         activeSection === item.id
-                          ? "bg-[#80def7] text-black hover:bg-[#80def7]"
-                          : "text-white hover:bg-[#b2e4f1] hover:text-black"
+                          ? "bg-[#80def7] text-black border-r-4 border-[#038ba4] hover:bg-[#b2e4f1]"
+                          : "text-white hover:bg-[#b2e4f1] hover:text-black hover:border-r-4 hover:border-[#038ba4]"
                       }`}
                     >
                       <item.icon />
-                      <span className="font-semibold text-[14px] font-poppins">{item.title}</span>
+                      <span className="font-semibold text-[14px]" style={{fontWeight:"300" ,fontFamily:"Poppins,sans-serif"}}>{item.title}</span>
                     </button>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
