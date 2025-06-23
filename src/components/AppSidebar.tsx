@@ -130,17 +130,27 @@ export function AppSidebar({ activeSection, setActiveSection }: AppSidebarProps)
               />
             </div>
 
+            {/* Birth & Death Registration Button */}
+            <div className="">
+              <button
+                className="w-full py-2 px-3 text-black font-semibold font-poppins text-sm whitespace-nowrap border-r-4 border-[#038ba4]"
+                style={{ backgroundColor: '#80def7', marginBottom:"1px" }}
+              >
+                Birth & Death Registration
+              </button>
+            </div>
+
             <SidebarMenu >
               {filteredMenuItems.map((item) => (
-                <SidebarMenuItem key={item.id} style={{marginTop:"6px", height:"30px"}}>
+                <SidebarMenuItem key={item.id} style={{marginTop:"1px", height:"30px"}}>
                   <SidebarMenuButton asChild>
                     <button
                       style={{height:"38px" ,borderRadius:"0px"}}
                       onClick={() => setActiveSection(item.id)}
                       className={`flex items-center gap-3 w-full text-left p-3 transition-colors font-poppins ${
                         activeSection === item.id
-                          ? "bg-[#80def7] text-black border-r-4 border-[#038ba4] hover:bg-[#b2e4f1]"
-                          : "text-white hover:bg-[#b2e4f1] hover:text-black hover:border-r-4 hover:border-[#038ba4]"
+                          ? "bg-[#80def7] text-black border-r-4 border-[#038ba4] hover:bg-[#b2e4f1] hover:text-black"
+                          : "text-white hover:bg-[#b2e4f1] hover:border-r-4 hover:border-[#038ba4] hover:text-black"
                       }`}
                     >
                       <item.icon />

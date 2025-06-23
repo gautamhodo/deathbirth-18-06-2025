@@ -136,15 +136,13 @@ export function BirthRecords({ setActiveSection }: BirthRecordsProps) {
   return (
     <>
     <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        {/* Removed Back button */}
-      </div>
+      
         
         <div>
         <div className="space-y-6">
-        <div className="w-100 h-100 bg-secondary p-5  rounded shadow-lg "  
+        <div className="w-100 h-100 bg-secondary p-2  rounded shadow-lg "  
         style={{backgroundColor:"white", borderLeft:"5px solid #038ba4"}}>
-          <h2 className="text-2xl font-bold text-foreground mb-2 mx-5">Birth Records</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2 mx-5"  style={{fontSize:"20px" ,fontWeight:"700" ,color:"#038ba4"}}>Birth Records</h2>
           <p className="text-muted-foreground mx-5">View and manage birth registration records</p>
         </div>
         </div>
@@ -168,14 +166,14 @@ export function BirthRecords({ setActiveSection }: BirthRecordsProps) {
 
       <Card>
         <CardHeader>
-          <div className="flex items-center gap-4">
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="relative flex-1 w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder="Search by child name, father name, or mother name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-10 w-full"
               />
             </div>
           </div>
@@ -375,7 +373,7 @@ export function BirthRecords({ setActiveSection }: BirthRecordsProps) {
         </CardContent>
       </Card>
     </div>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

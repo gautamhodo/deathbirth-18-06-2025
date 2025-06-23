@@ -63,14 +63,12 @@ export function CertificateGenerator({ setActiveSection }: CertificateGeneratorP
   return (
     <>
     <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        {/* Removed Back button */}
-      </div>
+      
       <div>
         <div className="space-y-6">
-        <div className="w-100 h-100 bg-secondary p-5  rounded "  
+        <div className="w-100 h-100 bg-secondary p-2  rounded "  
        style={{backgroundColor:"white", borderLeft:"5px solid #038ba4"}}>
-          <h2 className="text-2xl font-bold text-foreground mb-2">Certificate Generator</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2" style={{fontSize:"20px" ,fontWeight:"700" ,color:"#038ba4"}}>Certificate Generator</h2>
           <p className="text-muted-foreground">Generate birth and death certificates</p>
         </div>
       </div>
@@ -83,11 +81,11 @@ export function CertificateGenerator({ setActiveSection }: CertificateGeneratorP
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <Button
               variant={certificateType === "birth" ? "default" : "outline"}
               onClick={() => setCertificateType("birth")}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 w-full sm:w-auto"
             >
               <FileText className="w-4 h-4" />
               Birth Certificate
@@ -95,7 +93,7 @@ export function CertificateGenerator({ setActiveSection }: CertificateGeneratorP
             <Button
               variant={certificateType === "death" ? "default" : "outline"}
               onClick={() => setCertificateType("death")}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 w-full sm:w-auto"
             >
               <FileText className="w-4 h-4" />
               Death Certificate
@@ -177,7 +175,7 @@ export function CertificateGenerator({ setActiveSection }: CertificateGeneratorP
         </CardContent>
       </Card>
     </div>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

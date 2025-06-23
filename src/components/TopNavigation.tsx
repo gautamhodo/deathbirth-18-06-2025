@@ -25,7 +25,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useSidebar } from "@/components/ui/sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faBell, faGear, faCalendarDays, faClock, faCalculator } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faBell, faGear, faCalendarDays, faClock, faCalculator, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 interface TopNavigationProps {
   activeSection: string;
@@ -280,7 +280,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
                   }`}
                 >
                   More
-                  <ChevronDown className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faCaretDown} className="w-4 h-4" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56 bg-white border border-gray-200 shadow-lg font-poppins">
@@ -306,7 +306,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
               placeholder="Search Patient with Name or Card No"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              className="pl-10 bg-white text-black placeholder-gray-500 focus:border-primary font-poppins"
+              className="pl-1 bg-white text-black placeholder-gray-500 focus:border-primary font-poppins"
             />
             <button
               className="ml-3 flex items-center gap-2 px-4 py-1 text-sm font-medium text-white transition-colors"
@@ -318,7 +318,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
               }}
               onClick={() => setActiveSection('certificates')}
             >
-              New Sale
+              New Report
             </button>
           </div>
           
@@ -450,10 +450,10 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
-                <FontAwesomeIcon icon={faCalendarDays} className="w-5 h-5 text-black" />
+              <div className="flex items-center justify-center w-7 h-7 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
+                <FontAwesomeIcon icon={faCalendarDays} className="w-4 h-4 text-black" />
               </div>
-              <span className="text-sm"  style={{fontSize:"16px" ,fontWeight:"700" ,color:"#888888" }}>
+              <span className="text-sm"  style={{fontSize:"16x" ,fontWeight:"700" ,color:"#888888" }}>
                 {currentDateTime.toLocaleDateString('en-US', { 
                   weekday: 'short', 
                   year: 'numeric', 
@@ -462,11 +462,11 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
                 })}
               </span>
             </div>
-            <div className="flex items-center gap-2 text-black">
-              <div className="flex items-center justify-center w-8 h-8 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
-                <FontAwesomeIcon icon={faClock} className="w-5 h-5 text-black" />
+            <div className="flex items-center  text-black">
+              <div className="flex items-center justify-center w-7 h-7 border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
+                <FontAwesomeIcon icon={faClock} className="w-4 h-4 text-black" />
               </div>
-              <span className="text-sm" style={{fontSize:"16px" ,fontWeight:"700" ,color:"#888888" }}>
+              <span className="text-sm" style={{fontSize:"16px" ,fontWeight:"500" ,color:"#888888" }}>
                 {currentDateTime.toLocaleTimeString('en-US', { 
                   hour: '2-digit', 
                   minute: '2-digit', 
@@ -475,9 +475,9 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
                 })}
               </span>
             </div>
-            <div className="flex items-center gap-2 text-black">
-              <div className="flex items-center justify-center w-8 h-8  border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
-                <FontAwesomeIcon icon={faCalculator} />
+            <div className="flex items-center  text-black">
+              <div className="flex items-center justify-center w-7 h-7  border-2 border-white bg-white mr-2" style={{borderRadius:"9px"}}>
+                <FontAwesomeIcon icon={faCalculator}  className="w-4 h-4 text-black"/>
               </div>
             </div>
           </div>

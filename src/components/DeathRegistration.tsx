@@ -91,14 +91,12 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
   return (
     <>
     <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        {/* Removed Back button */}
-      </div>
+      
       <div>
         <div className="space-y-6">
-        <div className="w-100 h-100 bg-secondary p-5  rounded shadow-lg "  
+        <div className="w-100 h-100 bg-secondary p-2  rounded shadow-lg "  
         style={{backgroundColor:"white", borderLeft:"5px solid #038ba4"}}>
-          <h2 className="text-2xl font-bold text-foreground mb-2">Death Registration</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2" style={{fontSize:"20px" ,fontWeight:"700" ,color:"#038ba4"}}>Death Registration</h2>
           <p className="text-muted-foreground">Register a death and generate certificate</p>
         </div>
       </div>
@@ -114,7 +112,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div>
               <Label htmlFor="firstName">First Name *</Label>
               <Input
@@ -144,7 +142,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label>Date of Birth *</Label>
               <Popover>
@@ -199,7 +197,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label>Gender *</Label>
               <Select value={formData.gender} onValueChange={(value) => handleInputChange("gender", value)}>
@@ -245,7 +243,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label>ID Proof Type *</Label>
               <Select value={formData.idProofType} onValueChange={(value) => handleInputChange("idProofType", value)}>
@@ -322,7 +320,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="informantName">Informant Name *</Label>
               <Input
@@ -343,7 +341,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="informantPhone">Informant Phone *</Label>
               <Input
@@ -372,7 +370,7 @@ export function DeathRegistration({ setActiveSection }: DeathRegistrationProps) 
         </Button>
       </div>
     </div>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, ScrollText, Users, Award } from "lucide-react";
-import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { BirthDetails } from "@/components/BirthDetails";
 import { DeathDetails } from "@/components/DeathDetails";
 import { DashboardStats } from "@/components/DashboardStats";
+import Footer from "./Footer";
 import {
   Dialog,
   DialogContent,
@@ -84,7 +84,7 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
   };
 
   const handleActivityClick = (activity: any) => {
-    setSelectedRecord(activity.record);
+    setSelectedRecord({ ...activity.record, type: activity.type });
   };
 
   if (selectedRecord) {
@@ -129,14 +129,14 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
   return (
     <>
     <div className="space-y-6">
-      <div className="w-100 h-100 bg-secondary p-5 rounded shadow-lg "  style={{backgroundColor:"white", borderLeft:"5px solid #038ba4"}}>
-        <h2 className="text-2xl font-bold text-foreground mb-2 mx-5">Dashboard</h2>
+      <div className="w-100 h-100 bg-secondary p-2 rounded shadow-lg "  style={{backgroundColor:"white", borderLeft:"5px solid #038ba4"}}>
+        <h2 className="text-2xl font-bold text-foreground mb-2 mx-5" style={{fontSize:"20px" ,fontWeight:"700" ,color:"#038ba4"}}>Dashboard</h2>
         <p className="text-muted-foreground mx-5">Overview of registration system statistics</p>
       </div>
 
       <DashboardStats />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -268,7 +268,8 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
         </Card>
       </div>
     </div>
-    <Footer />
+    {/* <Footer /> */}
     </>
+    
   );
 }
