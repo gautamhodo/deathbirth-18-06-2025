@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SidebarProvider>
-        <div className="flex w-full bg-background pt-16 flex-1 flex-col md:flex-row">
+        <div className="flex w-full bg-background pt-16 flex-1 flex-col md:flex-row mx-4">
           <AppSidebar activeSection={activeSection} setActiveSection={setActiveSection} />
           <main className="flex-1 overflow-auto">
             <TopNavigation activeSection={activeSection} setActiveSection={setActiveSection} />

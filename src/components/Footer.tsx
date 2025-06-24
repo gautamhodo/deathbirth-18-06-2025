@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <div className="footer-container w-full">
+    <div className="footer-container" style={{marginLeft:"270px"}}>
       <div className="footer-left">
         <span>© 2025 </span>
         <a href="#">www.hodo.com</a>

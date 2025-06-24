@@ -314,7 +314,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
                 background: 'linear-gradient(135deg, rgb(5, 130, 172), rgb(16, 85, 97))',
                 borderRadius: "3px",
                 height: "30px",
-                minWidth: "120px"
+                minWidth: "130px"
               }}
               onClick={() => setActiveSection('certificates')}
             >
@@ -438,7 +438,7 @@ export function TopNavigation({ activeSection, setActiveSection }: TopNavigation
         </div>
       </nav>
       {/* Date and Time Display */}
-      <div className="bg-#e5e7eb border-none border-#e5e7eb w-full mt-6">
+      <div className="bg-#e5e7eb border-none border-#e5e7eb w-full mt-3">
         <div className="flex items-center justify-between gap-4 px-3">
           <div className="flex items-center">
             <img 

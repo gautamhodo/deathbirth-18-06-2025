@@ -138,18 +138,13 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                {stat.title}
-              </CardTitle>
-              <div className={`p-2 rounded-lg ${stat.bgColor}`}>
-                <stat.icon className={`w-5 h-5 ${stat.color}`} />
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-            </CardContent>
+          <Card
+            key={index}
+            className="bg-white shadow rounded-lg flex flex-col justify-center items-start p-6 min-h-[110px] min-w-[220px] border border-gray-200"
+            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)' }}
+          >
+            <div className="text-base font-semibold mb-2 text-black">{stat.title}</div>
+            <div className="text-4xl font-bold text-black leading-tight">{stat.value}</div>
           </Card>
         ))}
       </div>
@@ -204,14 +199,14 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
             <div className="grid grid-cols-2 gap-3">
               <button 
                 onClick={() => handleQuickAction("birth-registration")}
-                className="p-4 bg-[#038ba4] text-primary-foreground rounded-lg hover:bg-[#038ba4]/90 transition-colors"
+                className="p-4 bg-secondary rounded-lg hover:bg-[#038ba4]/90 transition-colors"
               >
                 <FileText className="w-6 h-6 mb-2 mx-auto" />
                 <span className="text-sm font-medium">New Birth Registration</span>
               </button>
               <button 
                 onClick={() => handleQuickAction("death-registration")}
-                className="p-4 bg-destructive text-destructive-foreground rounded-lg hover:bg-destructive/90 transition-colors"
+                className="p-4 bg-secondary rounded-lg hover:bg-destructive/90 transition-colors"
               >
                 <ScrollText className="w-6 h-6 mb-2 mx-auto" />
                 <span className="text-sm font-medium">New Death Registration</span>

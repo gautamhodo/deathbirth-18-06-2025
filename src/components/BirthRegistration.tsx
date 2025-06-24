@@ -45,12 +45,38 @@ export function BirthRegistration({ setActiveSection }: BirthRegistrationProps) 
     motherContact: "",
     guardianContact: "",
   });
+  const [addressChecked, setAddressChecked] = useState(false);
+  const [errors, setErrors] = useState<any>({});
+
+  const validateMobile = (number: string) => /^\d{10}$/.test(number);
+  const validateAddress = (address: string) => address.trim().length > 0;
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => {
+      if (field === "parentAddress" && addressChecked) {
+        return { ...prev, [field]: value, permanentAddress: value };
+      }
+      if (field === "permanentAddress" && addressChecked) return prev;
+      return { ...prev, [field]: value };
+    });
+  };
+
+  const handleAddressCheck = (checked: boolean) => {
+    setAddressChecked(checked);
+    if (checked) {
+      setFormData(prev => ({ ...prev, permanentAddress: prev.parentAddress }));
+    }
   };
 
   const handleSubmit = () => {
+    let newErrors: any = {};
+    if (!validateMobile(formData.fatherContact)) newErrors.fatherContact = "Enter a valid 10-digit mobile number";
+    if (!validateAddress(formData.parentAddress)) newErrors.parentAddress = "Address required";
+    if (!validateAddress(formData.permanentAddress)) newErrors.permanentAddress = "Address required";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     // Get existing birth records
     const existingRecords = JSON.parse(localStorage.getItem('birthRecords') || '[]');
     
@@ -338,13 +364,15 @@ export function BirthRegistration({ setActiveSection }: BirthRegistrationProps) 
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="fatherContact">Father's Contact Number</Label>
+              <Label htmlFor="fatherContact">Father's Contact Number *</Label>
               <Input
                 id="fatherContact"
                 value={formData.fatherContact}
                 onChange={(e) => handleInputChange("fatherContact", e.target.value)}
                 placeholder="Enter father's contact number"
+                maxLength={10}
               />
+              {errors.fatherContact && <span className="text-red-500 text-xs">{errors.fatherContact}</span>}
             </div>
             <div>
               <Label htmlFor="motherContact">Mother's Contact Number</Label>
@@ -386,17 +414,28 @@ export function BirthRegistration({ setActiveSection }: BirthRegistrationProps) 
               onChange={(e) => handleInputChange("parentAddress", e.target.value)}
               placeholder="Enter current address"
             />
+            {errors.parentAddress && <span className="text-red-500 text-xs">{errors.parentAddress}</span>}
           </div>
 
-          <div>
+          <div className="flex items-center gap-2">
             <Label htmlFor="permanentAddress">Permanent Address *</Label>
-            <Input
-              id="permanentAddress"
-              value={formData.permanentAddress}
-              onChange={(e) => handleInputChange("permanentAddress", e.target.value)}
-              placeholder="Enter permanent address"
+            <input
+              type="checkbox"
+              checked={addressChecked}
+              onChange={e => handleAddressCheck(e.target.checked)}
+              className="ml-2"
+              id="sameAsTemp"
             />
+            <span className="text-xs">Same as Current Address</span>
           </div>
+          <Input
+            id="permanentAddress"
+            value={formData.permanentAddress}
+            onChange={(e) => handleInputChange("permanentAddress", e.target.value)}
+            placeholder="Enter permanent address"
+            disabled={addressChecked}
+          />
+          {errors.permanentAddress && <span className="text-red-500 text-xs">{errors.permanentAddress}</span>}
         </CardContent>
       </Card>
 
