@@ -35,8 +35,9 @@ interface TopNavigationProps {
 export function TopNavigation({ activeSection, setActiveSection }: TopNavigationProps) {
   const navItems = [
     { id: "dashboard", label: "Dashboard" },
-    { id: "birth-records", label: "Birth List" },
-    { id: "death-records", label: "Death List" },
+    { id: "", label: "Billing" },
+    { id: "", label: "Pharmacy" },
+    { id: "", label: "Appointments" },
   ];
 
   const [showShortcuts, setShowShortcuts] = useState(false);

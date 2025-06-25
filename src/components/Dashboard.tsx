@@ -133,8 +133,8 @@ export function Dashboard({ setActiveSection }: DashboardProps) {
         <h2 className="text-2xl font-bold text-foreground mb-2 mx-5" style={{fontSize:"20px" ,fontWeight:"700" ,color:"#038ba4"}}>Dashboard</h2>
         <p className="text-muted-foreground mx-5">Overview of registration system statistics</p>
       </div>
-
-      <DashboardStats />
+{/* 
+      <DashboardStats /> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
